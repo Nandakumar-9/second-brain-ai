@@ -80,7 +80,7 @@ export async function POST(request: NextRequest) {
         summary: insights.summary,
         insight: insights.insight,
         tags: insights.tags.length > 0 ? insights.tags : null,
-        type,
+        type: type ?? 'note',
         source_url: source_url ?? null,
       })
       .select()

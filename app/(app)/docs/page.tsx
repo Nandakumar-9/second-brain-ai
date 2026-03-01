@@ -1,14 +1,18 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 
-const sectionVariants = {
+const sectionVariants: Variants = {
   hidden: { opacity: 0, y: 20 },
-  visible: (i: number) => ({
+  visible: {
     opacity: 1,
     y: 0,
-    transition: { delay: i * 0.08, duration: 0.35, ease: 'easeOut' },
-  }),
+    transition: {
+      delay: 0.1,
+      duration: 0.5,
+      ease: [0.25, 0.1, 0.25, 1],
+    },
+  },
 };
 
 export default function DocsPage() {
