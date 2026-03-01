@@ -1,36 +1,137 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AI Powered Second Brain Knowledge System
 
-## Getting Started
+A full-stack knowledge management system that captures ideas, links, and insights and enriches them with AI-generated summaries, tags, and insights.
 
-First, run the development server:
+Built with modern full-stack architecture using Next.js, Supabase, and AI integration.
 
-```bash
+---
+
+## Features
+
+- Capture notes, links, and insights
+- AI-powered enrichment (summary, tags, insight)
+- Search and filter knowledge
+- Dashboard with responsive card layout
+- Note detail page
+- Public AI query endpoint
+- Clean minimal UI with animations
+
+---
+
+## Tech Stack
+
+Frontend
+- Next.js (App Router)
+- React
+- Tailwind CSS
+- Framer Motion
+
+Backend
+- Next.js API Routes
+
+Database
+- Supabase (PostgreSQL)
+
+AI Integration
+- Gemini API (server-side)
+
+---
+
+## Architecture
+
+Frontend UI  
+↓  
+Next.js API Routes  
+↓  
+AI Service Layer  
+↓  
+Supabase Database  
+
+Key APIs:
+
+POST /api/brain/ingest  
+GET /api/brain/search  
+GET /api/public/brain/query  
+
+---
+
+## Database Schema
+
+Table: knowledge_items
+
+id  
+title  
+content  
+summary  
+insight  
+tags  
+type  
+source_url  
+created_at  
+
+---
+
+## Running Locally
+
+Install dependencies:
+
+npm install
+
+Run development server:
+
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+http://localhost:3000
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## Environment Variables
 
-To learn more about Next.js, take a look at the following resources:
+Create `.env.local`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+GEMINI_API_KEY=your_api_key
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+SUPABASE_URL=your_project_url  
+SUPABASE_SERVICE_ROLE_KEY=your_service_key  
 
-## Deploy on Vercel
+NEXT_PUBLIC_SUPABASE_URL=your_project_url  
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_anon_key  
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## AI Integration
+
+Notes are enriched using an AI model which generates:
+
+- Summary
+- Tags
+- Insight
+
+If the AI API is unavailable or quota is exceeded, the system gracefully stores the note without enrichment.
+
+---
+
+## Pages
+
+/capture → Capture knowledge  
+/dashboard → Browse notes  
+/notes/[id] → View note details  
+/docs → System documentation  
+
+---
+
+## Deployment
+
+Recommended deployment:
+
+- Vercel
+- Supabase cloud database
+
+---
+
+## Author
+
+Nandakumar  
+B.Tech Computer Science
